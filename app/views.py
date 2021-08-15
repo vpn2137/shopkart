@@ -6,6 +6,6 @@ from store.models import Product
 def home(request):
     products = Product.objects.all().filter(is_avilabel=True)
     contex={
-        'products':products,
+        'products': products,
     }
-    return render(request,'home.html',contex)
+    return render(request, 'home.html', contex)

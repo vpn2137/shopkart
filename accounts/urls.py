@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.urls import path
 
-from .import views
+# from .import views
+from accounts import views
 
 urlpatterns = [
     path('register/',views.register, name='register'),
@@ -28,7 +29,7 @@ urlpatterns = [
     # path('activate/<slug:uidb64>/<slug:token>/',views.activate,name='activate'),
     path('activate/<uidb64>/<token>/',views.activate, name='activate'),
     path('forgotPassword/', views.forgotPassword, name='forgotPassword'),
-    path('resetpassword_validate/', views.resetpassword_validate, name='resetpassword_validate'),
-    path('resetpassword/', views.resetpassword, name='resetpassword'),
+    path('resetpassword_validate/<uidb64>/<token>/',views.resetpassword_validate, name='resetpassword_validate'),
+    path('resetPassword/', views.resetPassword, name='resetPassword'),
 
 ]
